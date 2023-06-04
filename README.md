@@ -1,5 +1,5 @@
 # [JSON](https://www.json.org/json-en.html)
----------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 
 [JSON](https://www.json.org/json-en.html), which stands for JavaScript Object Notation, is a lightweight data-interchange format that is easy for humans to read and write, and easy for machines to parse and generate. JSON is a text format that is completely language-independent, making it an ideal format for data exchange between different programming languages and systems.
 
