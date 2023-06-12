@@ -2,12 +2,30 @@
 <html>
 <head>
     <title>Device Information</title>
+    <style>
+        /* Add CSS styles for better presentation */
+        h1 {
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        p {
+            font-family: Arial, sans-serif;
+        }
+
+        .info-label {
+            font-weight: bold;
+        }
+    </style>
     <script>
         function getDeviceInformation() {
             var deviceName = "Unknown";
             var operatingSystem = "Unknown";
             var browser = "Unknown";
             var screenResolution = "Unknown";
+            var cpuCores = "Unknown";
+
+            // Device detection library (e.g., WURFL) can be used for more comprehensive device detection
 
             // Device Name
             if (navigator.userAgent) {
@@ -51,19 +69,26 @@
             // Screen Resolution
             screenResolution = window.screen.width + "x" + window.screen.height;
 
+            // CPU Cores
+            if (navigator.hardwareConcurrency) {
+                cpuCores = navigator.hardwareConcurrency;
+            }
+
             // Display the device information to the user
-            document.getElementById("device-name").innerHTML = "Device Name: " + deviceName;
-            document.getElementById("os").innerHTML = "Operating System: " + operatingSystem;
-            document.getElementById("browser").innerHTML = "Browser: " + browser;
-            document.getElementById("screen-resolution").innerHTML = "Screen Resolution: " + screenResolution;
+            document.getElementById("device-name").textContent = "Device Name: " + deviceName;
+            document.getElementById("os").textContent = "Operating System: " + operatingSystem;
+            document.getElementById("browser").textContent = "Browser: " + browser;
+            document.getElementById("screen-resolution").textContent = "Screen Resolution: " + screenResolution;
+            document.getElementById("cpu-cores").textContent = "CPU Cores: " + cpuCores;
         }
     </script>
 </head>
 <body onload="getDeviceInformation()">
     <h1>Device Information</h1>
-    <p id="device-name">Device Name: </p>
-    <p id="os">Operating System: </p>
-    <p id="browser">Browser: </p>
-    <p id="screen-resolution">Screen Resolution: </p>
+    <p id="device-name" class="info-label">Device Name: </p>
+    <p id="os" class="info-label">Operating System: </p>
+    <p id="browser" class="info-label">Browser: </p>
+    <p id="screen-resolution" class="info-label">Screen Resolution: </p>
+    <p id="cpu-cores" class="info-label">CPU Cores: </p>
 </body>
 </html>
